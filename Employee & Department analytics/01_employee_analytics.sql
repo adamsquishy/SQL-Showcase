@@ -13,9 +13,9 @@ SELECT
     COUNT(e.employee_id) AS total_employees,
     ROUND(AVG(e.salary), 2) AS average_salary,
     SUM(e.salary) AS total_department_payroll
-FROM departments d
-LEFT JOIN employees e ON d.department_id = e.department_id
-LEFT JOIN locations l ON d.location_id = l.location_id
+FROM hr.departments d
+LEFT JOIN hr.employees e ON d.department_id = e.department_id
+LEFT JOIN hr.locations l ON d.location_id = l.location_id
 GROUP BY d.department_name, l.city
 HAVING COUNT(e.employee_id) > 0
 ORDER BY total_department_payroll DESC;
