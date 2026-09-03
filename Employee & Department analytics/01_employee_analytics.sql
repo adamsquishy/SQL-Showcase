@@ -34,8 +34,8 @@ WITH RankedEmployees AS (
             PARTITION BY e.department_id 
             ORDER BY e.salary DESC
         ) AS salary_rank
-    FROM employees e
-    JOIN departments d ON e.department_id = d.department_id
+    FROM hr.employees e
+    JOIN hr.departments d ON e.department_id = d.department_id
 )
 SELECT 
     department_name,
